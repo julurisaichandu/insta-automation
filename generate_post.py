@@ -24,7 +24,7 @@ def load_font(size):
     return ImageFont.load_default()
 
 
-def generate_image(text, output_path="output/post.png"):
+def generate_image(text, output_path="output/post.jpg"):
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
 
     img = Image.new("RGB", (WIDTH, HEIGHT), BG_COLOR)
@@ -49,7 +49,7 @@ def generate_image(text, output_path="output/post.png"):
     bar_h = 10
     draw.rectangle([0, HEIGHT - bar_h, WIDTH, HEIGHT], fill=ACCENT_COLOR)
 
-    img.save(output_path)
+    img.save(output_path, "JPEG", quality=95)
     return output_path
 
 
